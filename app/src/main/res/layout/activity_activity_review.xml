@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#12324B"
+    tools:context="com.example.rz.apptesttool.mvp.view.ActivityReviewActivity">
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/box_criteries"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_activity_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textColor="#FFF"
+                    android:layout_margin="@dimen/common_margin"
+                    android:textSize="25sp" />
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@+id/tv_activity_name"
+                    android:background="#505050" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_criterions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_activity_name"/>
+                    <!--tools:listitem="@layout/item_criterion" />-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="#849BAE"
+                    android:id="@+id/tv_error"
+                    android:visibility="gone"
+                    android:text="@string/error_swipe_to_refresh"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/box_send">
+
+                    <EditText
+                        android:id="@+id/et_review"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/common_margin"
+                        android:backgroundTint="#1DBAC5"
+                        android:hint="@string/comment_hint"
+                        android:imeOptions="actionDone"
+                        android:inputType="textMultiLine|textFilter|textVisiblePassword|textNoSuggestions"
+                        android:maxLength="200"
+                        android:padding="10dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="#849BAE"
+                        android:textColorHint="#849BAE"
+                        android:textCursorDrawable="@null" />
+
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_button_box"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/et_review"
+                        android:layout_marginBottom="20dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <Button
+                            android:id="@+id/btn_cancel"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            style="@style/UxButton"
+                            android:text="@string/cancel"/>
+
+                        <Button
+                            android:id="@+id/btn_confirm"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/common_margin"
+                            android:layout_weight="1"
+                            style="@style/UxButton"
+                            android:text="@string/confirm"/>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>
