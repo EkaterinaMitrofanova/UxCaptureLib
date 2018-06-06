@@ -41,3 +41,25 @@ Add in build.gradle:
     realm {
       syncEnabled = true;
     }
+
+Create class which extends TestToolApplication and override **onCreate** method.
+You should set base url of your UxCapture server. Also you should create application there to get **id**.
+    
+    public class App extends TestToolApplication {
+
+        @Override
+        public void onCreate() {
+            super.onCreate();
+            setTestMode(true);
+            setBaseUrl("https://your.hosting.com/");
+            setAppId("12");
+        }
+    }
+    
+Add your created class in Manifest because TestToolApplication extends **Application**:
+
+    <application
+        ...
+        android:name=".App"
+        ...
+    </application>
